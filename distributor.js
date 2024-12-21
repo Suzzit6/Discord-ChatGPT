@@ -18,12 +18,7 @@ const genAIInstances = [
 
 let currentGenAIIndex = 0;
 const maxretries = 3;
-const systemInstructions =
-  process.env.SYSTEMINSTRUCTIONS +
-  " Your Name is " +
-  process.env.NAME +
-  "You are in this discord server - " +
-  process.env.SERVERNAME;
+
 
 function getNextGenAI() {
   let attempts = 0;
@@ -49,7 +44,7 @@ function getNextGenAI() {
   return selectedGenAI;
 }
 
-module.exports = async function GenerateMessage(message, user) {
+module.exports = async function GenerateMessage(message, user, systemInstructions) {
   for (let attempts = 0; attempts < maxretries; attempts++) {
     try {
       console.log("retry", attempts);

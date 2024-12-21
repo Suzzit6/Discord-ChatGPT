@@ -51,7 +51,7 @@ async function GeminiResponse(message, genAI, systemInstructions, user) {
   console.log("user", user.username);
 
   const result = await chatSession.sendMessage(
-    message + `-- message by discord user ${user.username}`
+    message + `-- message by discord user ${user.username} ,no need to use this info in your message`
   );
   console.log("result", JSON.parse(result.response.text()));
   return JSON.parse(result.response.text());
